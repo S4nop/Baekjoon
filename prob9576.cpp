@@ -31,6 +31,10 @@ int main(){
             if(minSize == 99999) break;
 
             int stuNum = *book[minIdx].begin();
+            for(set<int>::iterator it = book[minIdx].begin(); it != book[minIdx].end(); it++){
+                stuNum = stu[stuNum].size() > stu[*it].size() ? *it : stuNum;
+            }
+            
             for(int n : stu[stuNum])
                 book[n].erase(stuNum);
             stu[stuNum].clear();
